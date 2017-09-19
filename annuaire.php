@@ -3,7 +3,7 @@ include_once 'header.php';
  ?>
   <div class="container">
     <div class="row">
-      <h4>Notre annuaiare</h4>
+      <h4>Notre annuaire</h4>
     </div>
     <div class="row">
       <div class="collection">
