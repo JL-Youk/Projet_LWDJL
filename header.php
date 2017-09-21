@@ -33,17 +33,16 @@ if (isset($_POST['nom'])){
     else {
       $message_info = "<div id='message' class='mesage z-depth-1 pink white-text'><img src='images/563-full.png' alt='risitas forceur'> Bien ton injection ?<img src='images/563-full.png' alt='risitas forceur'> </div>";
     }
-
   }
 }
 if (isset($_SESSION['nom'])){
-  $connected = "<li class='blue-text'>Connecter en tant ".$_SESSION['nom']."</li><li><a href='deco.php'>Deconnexion</a></li>";
+  $connected = "<li style='text-decoration-line: underline;' class='white-text'>Connecter en tant ".$_SESSION['nom']."</li><li><a href='deco.php'>Deconnexion</a></li>";
 }
  ?>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Risitas & Co</title>
+  <title>RED APPLE</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,8 +51,8 @@ if (isset($_SESSION['nom'])){
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="grey lighten-2">
-  <nav class="grey darken-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Risitas & Co</a>
+  <nav class="deep-orange accent-4" role="navigation">
+    <div class="nav-wrapper container"><a style='font-size: 4rem;' id="logo-container" href="index.php" class="brand-logo white-text">SIX DAVE</a>
       <ul class="right hide-on-med-and-down">
         <?php echo $connected; ?>
         <li><a href="annuaire.php">Annuaire</a></li>
