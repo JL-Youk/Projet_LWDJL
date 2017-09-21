@@ -1,0 +1,27 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.mesage{
+  display: block;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+.mesage img{
+  vertical-align: middle;
+  height: 100px;
+}
+.parallax-container {
+    height: 250px;
+  }
