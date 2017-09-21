@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+  $('.parallax').parallax();
   function explode(){
     $('#message').slideUp();
   }

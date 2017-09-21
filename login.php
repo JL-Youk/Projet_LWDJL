@@ -1,9 +1,13 @@
 <?php
+// clef de Sel ecrit en dure =>
+$clef_de_salage = "@David";
+// clef de Sel ecrit en dure =>
 include_once 'header.php';
-if (isset($_SESSION['nom'])){
-  session_destroy();
-}
-// Finalement, on détruit la session.
+ ?>
+ <?php
+ if (isset($message_info)){
+   echo $message_info;
+ }
  ?>
   <div class="container">
     <div class="section">
@@ -11,7 +15,7 @@ if (isset($_SESSION['nom'])){
         <h4>Connexion</h4>
       </div>
       <div class="row">
-        <form class="" action="index.php" method="post">
+        <form class="" action="login.php" method="post">
           <input type="text" name="nom" value="" placeholder="Ton login">
           <input type="password" name="pass" value="" placeholder="Ton mot de passe">
           <button class="waves-effect waves-light btn-large right" type="submit">Connexion</button>

@@ -18,9 +18,7 @@ if (isset($_POST['nom'])){
       $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES);
       $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
 
-      var_dump($pass);
-      $pass = md5($pass.$clef_de_salage);
-      var_dump($pass);
+      // $pass = md5($pass.$clef_de_salage);
 
       $reponse = $base->prepare("SELECT * FROM users WHERE nom='$nom' AND pass = '$pass'");
       if ($reponse->execute()) {
@@ -39,7 +37,7 @@ if (isset($_POST['nom'])){
   }
 }
 if (isset($_SESSION['nom'])){
-  $connected = "<li class='blue-text'>Connecter en tant ".$_SESSION['nom']."</li>";
+  $connected = "<li class='blue-text'>Connecter en tant ".$_SESSION['nom']."</li><li><a href='deco.php'>Deconnexion</a></li>";
 }
  ?>
 <head>
@@ -53,9 +51,9 @@ if (isset($_SESSION['nom'])){
   <link href="css/sweetalert.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body class="grey lighten-2">
   <nav class="grey darken-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">LOGO</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Risitas & Co</a>
       <ul class="right hide-on-med-and-down">
         <?php echo $connected; ?>
         <li><a href="annuaire.php">Annuaire</a></li>

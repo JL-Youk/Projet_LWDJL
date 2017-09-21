@@ -1,4 +1,4 @@
-<footer class="page-footer grey darken-2">
+<footer class="page-footer grey darken-4">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright">
+  <div class="footer-copyright black">
     <div class="container">
     Made by ESD
     </div>
