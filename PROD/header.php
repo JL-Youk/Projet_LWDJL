@@ -18,7 +18,7 @@ if (isset($_POST['nom'])){
       $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES);
       $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
 
-      // $pass = md5($pass.$clef_de_salage);
+      $pass = md5($pass.$clef_de_salage);
 
       $reponse = $base->prepare("SELECT * FROM users WHERE nom='$nom' AND pass = '$pass'");
       if ($reponse->execute()) {

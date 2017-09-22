@@ -5,8 +5,7 @@ include_once 'header.php';
  $recherche = "";
  if(isset($_GET['recherche']))
  {
-   $recherche = htmlspecialchars($_GET['recherche'], ENT_QUOTES);
-   $recherche = "WHERE nom LIKE '".$recherche."'";
+   $recherche = "WHERE nom LIKE '".$_GET['recherche']."'";
  }
   ?>
   <div class="container">
@@ -42,29 +41,29 @@ include_once 'header.php';
               ?>
          </tr>
        </thead>
-
        <tbody>
       <?php
       // REQUETE PARAMETRES8
-      $requete_donnees_annuaire = $base->query("SELECT * FROM users ".$recherche);
-      $requete_donnees_annuaire->setFetchMode(PDO::FETCH_OBJ);
+      $requete_donnees_annuaire = "SELECT * FROM users ".$recherche;
+      $requete_donnees_annuaire = mysql_query($requete_donnees_annuaire) or die('Erreur SQL !<br>'.$requete_donnees_annuaire.'<br>'.mysql_error());
       $nbrecherche = 0;
-      while( $donnees_annuaire = $requete_donnees_annuaire->fetch() )
+      while($data = mysql_fetch_assoc($requete_donnees_annuaire))
       {
         $nbrecherche ++;
         ?>
         <tr>
-          <td><?php echo $donnees_annuaire->nom ?></td>
-          <td><?php echo $donnees_annuaire->mail ?></td>
+          <td><?php echo $data['nom'] ?></td>
+          <td><?php echo $data['mail'] ?></td>
           <?php
           if(isset($_SESSION['nom']))
           {
-            ?><td><?php echo $donnees_annuaire->type ?></td><?php
+            ?><td><?php echo $data['type'] ?></td><?php
           }
           ?>
         </tr>
         <?php
       }
+      mysql_close();
       if ($nbrecherche == 0) {
         echo "<div id='message' class='mesage z-depth-1 pink white-text'><img src='images/479-full.png' alt='risitas forceur'>Aucun resultat<img src='images/479-full.png' alt='risitas forceur'> </div>";
       }

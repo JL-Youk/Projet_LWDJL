@@ -1,5 +1,6 @@
 <?php
 include_once 'config.php';
+$clef_de_salage = "@David";
 $reponse = $base->prepare("SELECT * FROM users");
 if ($reponse->execute()) {
   while( $donnees = $reponse->fetch()){

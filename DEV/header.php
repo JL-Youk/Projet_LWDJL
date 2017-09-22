@@ -9,30 +9,22 @@ $clef_de_salage = "@David";
 $connected = "";
 if (isset($_POST['nom'])){
   if (isset($_POST['pass'])){
+    $nom = $_POST['nom'];
+    $pass = $_POST['pass'];
 
-    $mystring = $_POST['nom'].$_POST['pass'];
-    $findme = "'";
-    $pos = strpos($mystring, $findme);
+    $pass = md5($pass.$clef_de_salage);
 
-    if ($pos === false) {
-      $nom = htmlspecialchars($_POST['nom'], ENT_QUOTES);
-      $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
+    $sql = "SELECT * FROM users WHERE nom='$nom' AND pass='$pass'";
 
-      // $pass = md5($pass.$clef_de_salage);
-
-      $reponse = $base->prepare("SELECT * FROM users WHERE nom='$nom' AND pass = '$pass'");
-      if ($reponse->execute()) {
-        $message_info = "<div id='message' class='mesage z-depth-1 red white-text'>Login incorrect</div>";
-        while( $donnees = $reponse->fetch()){
-          $message_info = "<div id='message' class='mesage z-depth-1 green white-text'>Bienvenue ".$donnees['nom']."</div>";
-          $_SESSION['nom'] = $donnees['nom'];
-          $_SESSION['id'] = $donnees['id'];
-        }
-      }
+    $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+    $message_info = "<div id='message' class='mesage z-depth-1 red white-text'>Login incorrect</div>";
+    while($data = mysql_fetch_assoc($req))
+    {
+      $message_info = "<div id='message' class='mesage z-depth-1 green white-text'>Bienvenue ".$data['nom']."</div>";
+      $_SESSION['nom'] = $data['nom'];
+      $_SESSION['id'] = $data['id'];
     }
-    else {
-      $message_info = "<div id='message' class='mesage z-depth-1 pink white-text'><img src='images/563-full.png' alt='risitas forceur'> Bien ton injection ?<img src='images/563-full.png' alt='risitas forceur'> </div>";
-    }
+    mysql_close();
   }
 }
 if (isset($_SESSION['nom'])){
@@ -42,7 +34,7 @@ if (isset($_SESSION['nom'])){
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>SIX.DAVE</title>
+  <title>[DEV] SIX.DAVE</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,7 +44,7 @@ if (isset($_SESSION['nom'])){
 </head>
 <body class="grey lighten-2">
   <nav class="deep-orange accent-4" role="navigation">
-    <div class="nav-wrapper container"><a style='font-size: 4rem;' id="logo-container" href="index.php" class="brand-logo white-text">SIX DAVE</a>
+    <div class="nav-wrapper container"><a style='font-size: 4rem;' id="logo-container" href="index.php" class="brand-logo white-text">[DEV] SIX.DAVE V.2</a>
       <ul class="right hide-on-med-and-down">
         <?php echo $connected; ?>
         <li><a href="annuaire.php">Annuaire</a></li>
