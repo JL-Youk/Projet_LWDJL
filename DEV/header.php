@@ -2,31 +2,7 @@
 <html lang="fr">
 <?php
 include_once 'config.php';
-// clef de Sel ecrit en dure =>
-$clef_de_salage = "@David";
-// clef de Sel ecrit en dure =>
-
 $connected = "";
-if (isset($_POST['nom'])){
-  if (isset($_POST['pass'])){
-    $nom = $_POST['nom'];
-    $pass = $_POST['pass'];
-
-    $pass = md5($pass.$clef_de_salage);
-
-    $sql = "SELECT * FROM users WHERE nom='$nom' AND pass='$pass'";
-
-    $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
-    $message_info = "<div id='message' class='mesage z-depth-1 red white-text'>Login incorrect</div>";
-    while($data = mysql_fetch_assoc($req))
-    {
-      $message_info = "<div id='message' class='mesage z-depth-1 green white-text'>Bienvenue ".$data['nom']."</div>";
-      $_SESSION['nom'] = $data['nom'];
-      $_SESSION['id'] = $data['id'];
-    }
-    mysql_close();
-  }
-}
 if (isset($_SESSION['nom'])){
   $connected = "<li style='text-decoration-line: underline;' class='white-text'>Connecter en tant ".$_SESSION['nom']."</li><li><a href='deco.php'>Deconnexion</a></li>";
 }

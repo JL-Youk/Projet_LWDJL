@@ -45,7 +45,7 @@ include_once 'header.php';
       <?php
       // REQUETE PARAMETRES8
       $requete_donnees_annuaire = "SELECT * FROM users ".$recherche;
-      $requete_donnees_annuaire = mysql_query($requete_donnees_annuaire) or die('Erreur SQL !<br>'.$requete_donnees_annuaire.'<br>'.mysql_error());
+      $requete_donnees_annuaire = mysql_query($requete_donnees_annuaire) or die("Erreur SQL !<br><img src='images/23927-full.png' alt=''><br>".$requete_donnees_annuaire.'<br>'.mysql_error());
       $nbrecherche = 0;
       while($data = mysql_fetch_assoc($requete_donnees_annuaire))
       {
