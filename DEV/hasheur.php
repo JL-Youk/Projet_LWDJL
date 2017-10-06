@@ -1,12 +1,10 @@
 <?php
-// include_once 'config.php';
+if (isset($_POST['pass'])){
+  $pass = $_POST['pass'];
+  $clef_de_salage = "@David";
+  $pass = md5($pass.$clef_de_salage);
 
-$pass = 'password';
-$clef_de_salage = "@David";
-$pass = md5($pass.$clef_de_salage);
-echo $pass;
-
-
+}
 // $reponse = $base->prepare("SELECT * FROM users");
 // if ($reponse->execute()) {
 //   while( $donnees = $reponse->fetch()){
@@ -23,3 +21,15 @@ echo $pass;
 //   }
 // }
 ?>
+<form class="" action="hasheur.php" method="post">
+  <input type="text" name="pass" value="">
+  <input type="submit" name="" value="Hash!">
+  <span>
+    <?php
+    if (isset($_POST['pass'])){
+      echo $pass;
+    }
+     ?>
+  </span>
+
+</form>
