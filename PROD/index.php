@@ -2,6 +2,23 @@
 include_once 'header.php';
  ?>
  <div class="section white">
+   <?php
+   if (isset($_SESSION['nom'])){
+     if ($_SESSION['nom'] == "Bader") {
+       ?>
+       <div class="row container">
+         <h2 class="center">BRAVO</h2>
+         <div class="col s12">
+           <img class="responsive-img" src="images/profsalsaflag_bite.jpg" alt="prof de salsa">
+         </div>
+       </div>
+       <?php
+     }
+     else {
+       # code...
+     }
+   }
+    ?>
    <div class="row container">
      <h2 class="header">La Societé</h2>
      <div class="col s6">

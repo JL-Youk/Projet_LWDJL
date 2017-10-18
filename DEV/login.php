@@ -41,8 +41,8 @@ if (isset($_POST['nom'])){
       </div>
       <div class="row">
         <form class="" action="login.php" method="post">
-          <input type="text" name="nom" value="" placeholder="Ton login">
-          <input type="password" name="pass" value="" placeholder="Ton mot de passe">
+          <input type="text" name="nom" value="<?php if (isset($_POST['nom'])){echo $_POST['nom'];}?>" placeholder="Ton login">
+          <input type="password" name="pass" value="<?php if (isset($_POST['pass'])){echo $_POST['pass'];}?>" placeholder="Ton mot de passe">
           <button class="waves-effect waves-light btn-large right" type="submit">Connexion</button>
         </form>
       </div>
